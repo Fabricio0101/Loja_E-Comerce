@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}Todos Produtos{% endblock title %}
+
+{% block content %}
+
+<div class="container">
+    <h1 class="Titulo">PAGINA CATEGORIAS</h1>
+    
+    {% for cat in todoscategorias %}
+
+    <h1>{{cat.titulo}}</h1>
+    <div class="row mt-3">
+        {% for p in cat.produto_set.all %}
+            <div class="col-md-4">
+                <div class=" m-3">
+                    <h4><a href="{% url 'lojagamer:produtodetalhe' p.slug %}"> {{p.titulo}}</h4></a>
+                    <img src="{{p.image.url}}" alt="" class="img-fluid" style="height: 300px; object-fit: cover;">
+                    <p class="preco">Preço: <strike> R$ .{{p.preco_mercado}}</strike> R$. {{p.venda}}</p>
+                    <a href="{% url 'lojagamer:addcarrinho' p.id %}" class="btn-compra">Comprar</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    {% endfor %}
+
+</div>
+{% endblock %}
