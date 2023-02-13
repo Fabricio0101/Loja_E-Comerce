@@ -4,7 +4,7 @@ Este é o primeiro protótipo do projeto "Loja E-Comerce", onde nele é possíve
 # Instalação:
 
 ```
-pip install django
+pip install django pillow
 ```
 
 ```
